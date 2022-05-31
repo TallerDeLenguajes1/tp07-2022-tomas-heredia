@@ -17,3 +17,20 @@ for (int i = 0; i < NTareas; i++)
     TPendientes.Add(auxiliar);
 }
 
+for (int i = 0; i < NTareas; i++)
+{
+    Console.WriteLine("Tarea ID: "+TPendientes[i].TareaID);
+    Console.WriteLine("Descripcion: "+TPendientes[i].Descripcion);
+    Console.WriteLine("Duracion: "+TPendientes[i].Duracion);
+    Console.WriteLine("Esta tarea fue realizada? 1_SI  2_NO ");
+    int eleccion = Int32.Parse(Console.ReadLine());
+
+    if (eleccion == 1)
+    {
+        TCompletadas.Add(TPendientes[i]);
+    }
+}
+
+
+TPendientes = TPendientes.Except(TCompletadas).ToList();
+
